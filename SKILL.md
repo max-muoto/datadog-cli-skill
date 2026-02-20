@@ -59,8 +59,6 @@ All commands support these flags:
 
 - `--output, -o <value> - Output format: json, table, yaml (default: json)`
 - `--yes, -y - Skip confirmation prompts for destructive operations`
-- `--site <value> - Datadog site (default: datadoghq.com)`
-- `--verbose - Enable verbose logging`
 
 ## Available Commands
 
@@ -480,10 +478,6 @@ Delete a dashboard.
 pup dashboards delete abc-def-123 --yes
 ```
 
-#### `pup dashboards url <dashboard-id>`
-
-Get the URL for a dashboard.
-
 ### SLOs
 
 Manage Service Level Objectives.
@@ -553,9 +547,13 @@ pup incidents get abc-123-def
 pup incidents get abc-123-def | jq '.data.timeline'
 ```
 
-#### `pup incidents attachments <incident-id>`
+#### `pup incidents attachments list <incident-id>`
 
-Get incident attachments.
+List incident attachments.
+
+#### `pup incidents attachments delete <incident-id> <attachment-id>`
+
+Delete an incident attachment.
 
 ### Infrastructure
 
@@ -564,6 +562,11 @@ Manage hosts and infrastructure.
 #### `pup infrastructure hosts list`
 
 List hosts.
+
+**Flags:**
+- `--filter <value> - Filter hosts`
+- `--sort <value> - Sort field (default: "status")`
+- `--count <value> - Maximum hosts (default: 100)`
 
 #### `pup infrastructure hosts get <hostname>`
 
@@ -607,12 +610,21 @@ Manage events.
 
 List events.
 
+**Flags:**
+- `--start <value> - Start Unix timestamp`
+- `--end <value> - End Unix timestamp`
+- `--tags <value> - Filter by tags`
+
 #### `pup events search`
 
 Search events.
 
 **Flags:**
 - `--query <value> - Search query`
+- `--filter <value> - Filter query`
+- `--from <value> - Start time`
+- `--to <value> - End time`
+- `--limit <value> - Maximum results (default: 100)`
 
 #### `pup events get <event-id>`
 
