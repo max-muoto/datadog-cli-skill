@@ -234,7 +234,6 @@ List available metrics.
 
 **Flags:**
 - `--filter <value> - Filter by metric name pattern (e.g., "system.*")`
-- `--tag-filter <value> - Filter by tags (e.g., "env:prod,service:api")`
 
 **Examples:**
 
@@ -242,8 +241,6 @@ List available metrics.
 pup metrics list
 
 pup metrics list --filter="system.*"
-
-pup metrics list --tag-filter="env:prod"
 ```
 
 #### `pup metrics metadata get <metric-name>`
@@ -513,10 +510,6 @@ Delete an SLO.
 
 **Flags:**
 - `--yes - Skip confirmation prompt`
-
-#### `pup slos corrections`
-
-Manage SLO corrections.
 
 ### Incidents
 
