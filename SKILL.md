@@ -302,20 +302,6 @@ pup metrics submit \
   --tags="env:prod,service:api,region:us-east-1"
 ```
 
-#### `pup metrics tags list <metric-name>`
-
-List tags for a metric.
-
-**Flags:**
-- `--from <value> - Start time (default: "1h")`
-- `--to <value> - End time (default: "now")`
-
-**Examples:**
-
-```bash
-pup metrics tags list system.cpu.user
-```
-
 ### Logs
 
 Search and analyze log data.
